@@ -35,12 +35,11 @@
     {#if impact.type == "text"}
     <div class="mb-8">{@html impact.content}</div>
     {/if}
-
-    {#if impact.type == "image"}
-    <img alt="case-study" src={impact.content}/>
-    {/if}
   {/each}
   </div>
-
-
 </section>
+
+<section class="max-w-4xl m-auto mb-32">
+		{#each data.images as img} <img alt="case-study" src={img}/> {/each}
+</section>
+

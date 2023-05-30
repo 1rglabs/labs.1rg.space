@@ -12,7 +12,6 @@
     {"type": "text", "content": "NFFTT saw a major increase in volunteer signups during the pandemic, and a major concern at the end of the 2022 season was to give  everyone who signed up the opportunity to participate in picks."},
     {"type": "text", "content": "The team was evaluating different membership models when we launched a deep dive in their historical data. After our initial investigations, we built a micro-product which visualizes volunteer activity on a map. "},
     {"type": "text", "content": "This work unlocked information that pointed the team to focus on outreach and recruiting new tree owners rather than changing their membership model."},
-    {"type": "image", "content": "/images/case_study_nfftt.png"}
   ],
   "quotes": [
     {
@@ -20,5 +19,7 @@
     "source": "Julia Girmenia (Project directory)",
     "context": null
     }
-  ]
+  ],
+		
+"images": ["/images/case_study_nfftt.png"]
 }
