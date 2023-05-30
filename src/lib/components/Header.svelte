@@ -10,12 +10,8 @@
 	<a class="text-white hover:text-darkseagreen" href="/">
 		<Logo class="justify-center h-20 lg:ml-24" />
 	</a>
-	<div class="flex items-center  w-full">
-		<ul class="text-white ml-8 flex items-center text-xl font-bold uppercase">
-			<a href="/case-studies"><li class=""> Case Studies </li></a>
-		  <li class="mx-4">|</li>
-		  <a href="https://1rg.space/"><li class=""> 1RG.Space</li></a>
-	  </ul>
+	<div class="flex items-center justify-end w-full">
+	  <HamburgerButton on:click={() => (menuOpen = true)} />
 	</div>
 </header>
 <Menu bind:open={menuOpen} />

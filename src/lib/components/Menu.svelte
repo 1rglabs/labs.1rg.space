@@ -10,11 +10,8 @@
 
 	let menuItems = [
 		{ name: 'Home', href: '/' },
-		{ name: 'Memberships', href: '/memberships' },
-		{ name: 'Events', href: '/events' },
-		{ name: 'About Us', href: '/about' },
+		{ name: 'Case Studies', href: '/case-studies' },
 		{ name: 'Contact', href: '/contact' },
-		{ name: 'Member Space', href: 'https://community.1rg.space' }
 	];
 
 	export let open = false;
