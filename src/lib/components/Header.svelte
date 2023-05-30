@@ -11,6 +11,9 @@
 		<Logo class="justify-center h-20 lg:ml-24" />
 	</a>
 	<div class="flex items-center justify-end w-full">
+		<div class="text-white mr-8 flex items-center text-xl font-bold uppercase">
+				<a class="hover:text-darkseagreen" href="https://1rg.space/">1RG.Space</a>
+	  </div>
 	  <HamburgerButton on:click={() => (menuOpen = true)} />
 	</div>
 </header>
