@@ -1,7 +1,7 @@
 const config = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
     // case studies (json files) use classes dynamically
-	safelist: ["text-blue-600"],
+	safelist: ["text-mediumorchid"],
 
 	theme: {
 		fontSize: {
