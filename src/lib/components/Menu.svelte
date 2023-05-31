@@ -41,14 +41,16 @@
 
 		<div class="flex items-center w-1/2 h-full">
 			<ul
-				class="flex flex-col justify-between px-5 py-12 text-3xl font-black tracking-wider uppercase lg:text-5xl h-3/4 lg:h-full xl:text-7xl"
+				class="flex flex-col justify-start px-5 py-12 text-3xl font-black tracking-wider uppercase lg:text-5xl h-3/4 lg:h-full xl:text-7xl"
 			>
 				{#each menuItems as menuItem}
+				<div class="mb-8" >
 					<li class={$page.url.pathname === menuItem.href ? 'text-darkseagreen' : 'text-white'}>
 						<a on:click={() => (open = false)} href={menuItem.href} class="hover:text-darkseagreen "
 							>{menuItem.name}</a
 						>
 					</li>
+				</div>
 				{/each}
 			</ul>
 		</div>
