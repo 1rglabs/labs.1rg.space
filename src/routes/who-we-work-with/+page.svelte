@@ -19,7 +19,7 @@
     We take pride in our diverse client portfolio, working with organizations that are making a meaningful difference.
   </p>
 
-  <div class="text-4xl lg:text-6xl my-8 lg:my-8">✱</div>
+  <div class="text-2xl lg:text-3xl my-8">✱</div>
 
   <p class="max-w-2xl">
     We have collaborated with a wide range of non-profits, social impact organizations, and businesses. Through our strategic partnerships, we have helped our clients overcome challenges, streamline their operations, and maximize their impact on the communities they serve.
