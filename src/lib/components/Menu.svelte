@@ -10,7 +10,7 @@
 
 	let menuItems = [
 		{ name: 'Home', href: '/' },
-		{ name: 'Case Studies', href: '/case-studies' },
+		{ name: 'Who we work with', href: '/who-we-work-with' },
 		{ name: 'Contact', href: '/contact' },
 	];
 

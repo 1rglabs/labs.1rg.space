@@ -2,8 +2,8 @@
 
 export const prerender = true;
 
-import bike_brigade from '$lib/case-studies/bike_brigade.json';
-import nfftt from '$lib/case-studies/not_far_from_the_tree.json';
+import bike_brigade from '$lib/who-we-work-with/bike_brigade.json';
+import nfftt from '$lib/who-we-work-with/not_far_from_the_tree.json';
 import { error } from '@sveltejs/kit';
 
 const pages = {
