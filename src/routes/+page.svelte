@@ -30,14 +30,10 @@
   </div>
 </div>
 
-<!-- <SectionHeading sectionTitle="Why we exist" isReversed={true}>
-  
-</SectionHeading> -->
-
 <!-- Our Framework -->
-<SectionHeading sectionTitle="How we work">
+<SectionHeading sectionTitle="A technology partner for mission driven organizations">
   <p class="mb-8 xl:mt:16">
-    1RG Labs provides socially impactful organizations with the kind of software & data expertise that's normally reserved for Big Tech.
+    We provide socially impactful organizations with the kind of software & data expertise that's normally reserved for Big Tech.
   </p>
   <p class="mb-3">
     At the core of our method are regular check-ins which structure the rest of our work. Our team works across three pillars:
@@ -51,20 +47,3 @@
     We scale our involvement over time based on our client's needs.
   </p>
 </SectionHeading>
-
-<section class="flex flex-col text-white bg-black xl:items-stretch xl:flex-row pb-24">
-  <div class="p-12 space-y-5 text-md xl:text-lg xl:w-1/2 ">
-    <p>
-      1RG Labs was founded by <a class="underline hover:text-mediumorchid" href="https://max.computer" >Max Veytsman</a > and <a href="https://words.serenaperuzzo.com/" class="underline hover:text-mediumorchid" >Serena Peruzzo</a>.
-    </p>
-    <p>
-      Max has over a decade of experience in tech, having worked as a cybersecurity consultant, a startup CEO and a software engineer. Most recently he was a Senior Engineer at GitHub, and the Founding Engineer at Bike Brigade where he developed their dispatching platform. Serena and Max share a passion for using their technical skills to help organizations that serve their communities.
-    </p>
-    <p>
-      Serena has worked both in academia as a machine learning researcher and in the industry as a data science consultant on the Australian, British and Canadian markets. Most recently she was a Senior Data Scientist at Shopify where she built data products to influence platform improvement and program decisions. She has a passion for travel, photography, and public speaking.
-    </p>
-  </div>
-  <div class="flex justify-center p-12 xl:p-20 -mt-20 xl:w-1/2 xl:mt-0">
-    <img class="object-cover object-center h-full xl:w-full" src={portrait} alt="Max & Serena"/>
-  </div>
-</section>
