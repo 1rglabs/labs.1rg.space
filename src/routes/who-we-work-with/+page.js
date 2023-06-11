@@ -2,7 +2,7 @@
 
 export const prerender = true;
 
-import caseStudies from '$lib/case-studies/';
+import caseStudies from '$lib/who-we-work-with';
 
 const pages = {}
 caseStudies.forEach(function(cs) {
