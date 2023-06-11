@@ -29,19 +29,9 @@
 	>
 		<XButton on:click={() => (open = false)} class="absolute top-0 right-0" />
 
-		<div class="flex-col items-center justify-center hidden w-1/2 xl:flex">
-			<Logo class="justify-center text-white h-96"/>
-			<div
-				class="w-full p-5 text-5xl font-bold tracking-wider text-center uppercase bg-darkseagreen"
-				transition:fade={{duration: 1000}}
-			>
-				CURIOUS CREATIVE CARING
-			</div>
-		</div>
-
 		<div class="flex items-center w-1/2 h-full">
 			<ul
-				class="flex flex-col justify-start px-5 py-12 text-3xl font-black tracking-wider uppercase lg:text-5xl h-3/4 lg:h-full xl:text-7xl"
+				class="flex flex-col justify-center px-5 py-12 text-3xl font-black tracking-wider uppercase lg:text-5xl h-3/4 lg:h-full xl:text-7xl"
 			>
 				{#each menuItems as menuItem}
 				<div class="mb-8" >
@@ -54,5 +44,16 @@
 				{/each}
 			</ul>
 		</div>
+
+		<div class="flex-col items-center justify-center hidden w-1/2 xl:flex">
+			<Logo class="justify-center text-white h-96"/>
+			<div
+				class="w-full p-5 text-2xl font-bold tracking-wider text-center uppercase bg-darkseagreen"
+				transition:fade={{duration: 1000}}
+			>
+				Strategy ✱ Process ✱ Implementaton
+			</div>
+		</div>
+
 	</div>
 {/if}
