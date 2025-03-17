@@ -38,45 +38,56 @@
 				class="flex flex-col justify-center px-5 py-12 text-3xl font-black tracking-wider uppercase lg:text-5xl h-3/4 lg:h-full xl:text-7xl"
 			>
 				{#each menuItems as menuItem}
-					<div class="mb-8">
-						<li class={$page.url.pathname === menuItem.href ? 'text-darkseagreen' : 'text-white'}>
-							<a
-								on:click={() => (open = false)}
-								href={menuItem.href}
-								class="hover:text-darkseagreen ">{menuItem.name}</a
-							>
-						</li>
-					</div>
-				{/each}
-					<li class="flex space-x-2 text-white">
-						<a
-							class="hover:text-darkseagreen"
-							href="https://bsky.app/profile/1rg.space"
-							rel="me"
-							target="_blank"
-							title="Follow 1RG on Bluesky"
+					<li
+						class="mb-8 text-white"
+						class:text-darkseagreen={$page.url.pathname === menuItem.href}
+					>
+						<a on:click={() => (open = false)} href={menuItem.href} class="hover:text-darkseagreen "
+							>{menuItem.name}</a
 						>
-							<IconBluesky />
-						</a>
-						<a
-							class="	hover:text-darkseagreen"
-							href="https://cosocial.ca/@1rg"
-							rel="me"
-							target="_blank"
-							title="Follow 1RG on Mastadon"
-						>
-							<IconMastadon />
-						</a>
-						<a
-							class="hover:text-darkseagreen"
-							href="https://instagram.com/1rg.space"
-							rel="me"
-							target="_blank"
-							title="Follow 1RG on Instagram"
-						>
-							<IconInstagram />
-						</a>
 					</li>
+				{/each}
+				<div class="py-10 md:hidden" />
+
+				<li class="mb-8 text-whit md:hidden">
+					<a class="hover:text-darkseagreen" href="https://words.1rg.space/">Words</a>
+				</li>
+
+				<li class="mb-8 text-white md:hidden">
+					<a class="hover:text-darkseagreen" href="https://1rg.space/">Space</a>
+				</li>
+				<li class="mb-8 text-white md:hidden">
+					<a class="hover:text-darkseagreen" href="https://incubator.1rg.space/">Incubator</a>
+				</li>
+				<li class="flex space-x-2 text-white">
+					<a
+						class="hover:text-darkseagreen"
+						href="https://bsky.app/profile/1rg.space"
+						rel="me"
+						target="_blank"
+						title="Follow 1RG on Bluesky"
+					>
+						<IconBluesky />
+					</a>
+					<a
+						class="	hover:text-darkseagreen"
+						href="https://cosocial.ca/@1rg"
+						rel="me"
+						target="_blank"
+						title="Follow 1RG on Mastadon"
+					>
+						<IconMastadon />
+					</a>
+					<a
+						class="hover:text-darkseagreen"
+						href="https://instagram.com/1rg.space"
+						rel="me"
+						target="_blank"
+						title="Follow 1RG on Instagram"
+					>
+						<IconInstagram />
+					</a>
+				</li>
 			</ul>
 		</div>
 
