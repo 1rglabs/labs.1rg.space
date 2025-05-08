@@ -14,6 +14,7 @@
 
 	let menuItems = [
 		{ name: 'Home', href: '/' },
+		{ name: 'About us', href: '/about-us' },
 		{ name: 'Who we work with', href: '/who-we-work-with' },
 		{ name: 'Contact', href: '/contact' }
 	];
