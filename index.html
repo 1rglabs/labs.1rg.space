@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1RG Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="gradient-bg"></div>
+    <div class="animated-grid-lines"></div>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="1RG-White.webp" alt="1RG Logo" width="140" height="68" />
+            </div>
+        </div>
+        <h2 class="company-name">1RG Labs</h2>
+        <div class="content">
+            <h1 class="title">
+                <span class="word">We</span>
+                <span class="word">build</span>
+                <span class="word gradient-text">good</span>
+                <span class="word">software</span>
+                <span class="word">for</span>
+                <span class="word">resilient</span>
+                <span class="word">futures.</span>
+            </h1>
+            <div class="contact">
+                <a href="mailto:team@1rg.space" class="email">
+                    <span class="email-text">team@1rg.space</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Team Section -->
+    <section class="section team-section">
+        <div class="section-container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle team-subtitle">Worker-owned. Engineering-driven. Future-focused.</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="images/andrew.jpeg" alt="Andrew Louis" />
+                    </div>
+                    <h3 class="member-name">Andrew Louis</h3>
+                    <p class="member-role">Partner</p>
+                    <p class="member-bio">Product • Engineering</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="images/serena.jpg" alt="Serena Peruzzo" />
+                    </div>
+                    <h3 class="member-name">Serena Peruzzo</h3>
+                    <p class="member-role">Partner</p>
+                    <p class="member-bio">Data • Engineering</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="images/max.jpg" alt="Max Veytsman" />
+                    </div>
+                    <h3 class="member-name">Max Veytsman</h3>
+                    <p class="member-role">Partner</p>
+                    <p class="member-bio">Security • Engineering • DevOps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <!-- <section class="section clients-section">
+        <div class="section-container">
+            <h2 class="section-title">Trusted By</h2>
+            <div class="clients-grid">
+                <div class="client-logo">
+                    <div class="logo-placeholder">
+                        <span class="client-name">The Outreach Team</span>
+                    </div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder"></div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder"></div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Blog Section -->
+    <section class="section blog-section">
+        <div class="section-container">
+            <h2 class="section-title">Latest Insights</h2>
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="post-meta">
+                        <span class="post-date">Nov 15, 2024</span>
+                        <span class="post-tag"><span>Infrastructure</span></span>
+                    </div>
+                    <h3 class="post-title">x</h3>
+                    <p class="post-excerpt">x</p>
+                    <a href="#" class="post-link">Read more →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="footer-text">© 2024 1RG Labs Co-operative. Building resilient futures.</p>
+                <a href="mailto:team@1rg.space" class="footer-email">team@1rg.space</a>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="grid-overlay"></div>
+    <div class="cursor-glow"></div>
+    <script>
+        const cursorGlow = document.querySelector('.cursor-glow');
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animate() {
+            currentX += (mouseX - currentX) * 0.1;
+            currentY += (mouseY - currentY) * 0.1;
+            
+            cursorGlow.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Fade out animated grid lines on scroll
+        const animatedGridLines = document.querySelector('.animated-grid-lines');
+        
+        function handleScroll() {
+            const scrollY = window.scrollY;
+            const maxScroll = 300;
+            const opacity = Math.max(0, 1 - (scrollY / maxScroll));
+            
+            animatedGridLines.style.opacity = opacity;
+        }
+        
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    </script>
+</body>
+</html>
