@@ -1,4 +1,8 @@
 ---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/jetbrains-mono';
+import spaceGroteskWoff2 from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url';
+import jetbrainsMonoWoff2 from '@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 
 interface Props {
@@ -38,9 +42,8 @@ const ogImage = new URL('/og.png', Astro.site);
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="1RG Labs logo">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={spaceGroteskWoff2}>
+    <link rel="preload" as="font" type="font/woff2" crossorigin href={jetbrainsMonoWoff2}>
 </head>
 <body>
     <div class="noise"></div>
