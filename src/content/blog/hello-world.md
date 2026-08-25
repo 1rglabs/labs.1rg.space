@@ -3,7 +3,7 @@ title: "Hello, world"
 date: 2026-08-25
 tag: "Meta"
 excerpt: "A sample post demonstrating the blog pipeline. Posts are markdown files in src/content/blog — delete this one before shipping, or set draft: true to hide it."
-draft: false
+draft: true
 ---
 
 This is a sample post. It exists to demonstrate the blog pipeline: drop a
