@@ -15,10 +15,14 @@
     --bg-darker: #020617;
     --text-primary: #F9FAFB;
     --text-secondary: #9CA3AF;
+    /* self-hosted variable fonts, registered by the @fontsource-variable
+       imports in Base.astro */
+    --font-sans: 'Space Grotesk Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
 }
 
 body {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-sans);
     background-color: var(--bg-dark);
     color: var(--text-primary);
     overflow-x: hidden;
