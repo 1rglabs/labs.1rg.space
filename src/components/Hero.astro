@@ -188,22 +188,17 @@ import { Image } from 'astro:assets';
     color: var(--text-secondary);
     text-decoration: none;
     padding: 12px 20px;
-    border: 1px solid rgba(117, 71, 219, 0.4);
-    border-radius: 6px;
-    background: rgba(117, 71, 219, 0.1);
+    background: rgba(117, 71, 219, 0.12);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    transform: skewX(-3deg);
+    /* 45deg notched corners, same grammar as the team cards */
+    clip-path: polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
     box-shadow:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
         0 4px 16px rgba(117, 71, 219, 0.15);
-}
-
-.email > * {
-    transform: skewX(3deg);
 }
 
 .email::before {
@@ -224,9 +219,8 @@ import { Image } from 'astro:assets';
 
 .email:hover {
     color: var(--text-primary);
-    border-color: rgba(117, 71, 219, 0.6);
-    background: rgba(117, 71, 219, 0.15);
-    transform: translateY(-2px) skewX(-3deg);
+    background: rgba(117, 71, 219, 0.18);
+    transform: translateY(-2px);
     box-shadow:
         inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
         0 10px 30px -10px rgba(117, 71, 219, 0.4);
