@@ -1,16 +1,6 @@
 ---
 import logo from '../assets/1RG-White.webp';
 import { Image } from 'astro:assets';
-
-const words = [
-  { text: 'We' },
-  { text: 'build' },
-  { text: 'good', gradient: true },
-  { text: 'software' },
-  { text: 'for' },
-  { text: 'resilient' },
-  { text: 'futures.' },
-];
 ---
 
 <div class="container">
@@ -21,10 +11,16 @@ const words = [
     </div>
     <h2 class="company-name">1RG Labs</h2>
     <div class="content">
+        <!-- Keep these as literal markup: the whitespace between spans is the
+             space between words, and a .map() would strip it. -->
         <h1 class="title">
-            {words.map(({ text, gradient }) => (
-                <span class:list={['word', { 'gradient-text': gradient }]}>{text}</span>
-            ))}
+            <span class="word">We</span>
+            <span class="word">build</span>
+            <span class="word gradient-text">good</span>
+            <span class="word">software</span>
+            <span class="word">for</span>
+            <span class="word">resilient</span>
+            <span class="word">futures.</span>
         </h1>
         <div class="contact">
             <a href="mailto:team@1rg.coop" class="email">
