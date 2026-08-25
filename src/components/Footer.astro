@@ -14,6 +14,9 @@ const year = new Date().getFullYear();
 <style>
 .footer {
     padding: 60px 0;
+    /* Clearance for the 200px fade-to-black overlay below, so it darkens
+       empty background rather than whatever section comes last. */
+    margin-top: 200px;
     position: relative;
     z-index: 10;
 }
