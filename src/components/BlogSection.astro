@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+{posts.length > 0 && (
+    <section class="section blog-section">
+        <div class="section-container">
+            <h2 class="section-title">Latest Insights</h2>
+            <div class="blog-grid">
+                {posts.map((post) => (
+                    <article class="blog-post">
+                        <div class="post-meta">
+                            <span class="post-date">{formatDate(post.data.date)}</span>
+                            <span class="post-tag"><span>{post.data.tag}</span></span>
+                        </div>
+                        <h3 class="post-title">{post.data.title}</h3>
+                        <p class="post-excerpt">{post.data.excerpt}</p>
+                        <a href={`/blog/${post.id}/`} class="post-link">Read more →</a>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+)}
+
+<style>
+.blog-section {
+    background: linear-gradient(-45deg, transparent 0%, rgba(117, 71, 219, 0.02) 100%);
+    position: relative;
+    padding-bottom: 120px; /* Adjusted to align with footer transition */
+}
+
+.blog-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, transparent 48%, rgba(117, 71, 219, 0.03) 50%, transparent 52%);
+    pointer-events: none;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+}
+
+.blog-post {
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(117, 71, 219, 0.05) 0%, rgba(117, 71, 219, 0.02) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+        0 8px 32px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0 30px, 30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+}
+
+.blog-post::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(117, 71, 219, 0.2) 50%, rgba(255, 255, 255, 0.05) 100%);
+    clip-path: polygon(0 30px, 30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.blog-post:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+        0 12px 40px rgba(117, 71, 219, 0.15);
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.post-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.post-tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(117, 71, 219, 0.1);
+    color: var(--primary);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: skewX(-45deg);
+    display: inline-block;
+}
+
+.post-tag span {
+    display: inline-block;
+    transform: skewX(45deg);
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.post-excerpt {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.post-link {
+    font-size: 16px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.post-link:hover {
+    color: var(--secondary);
+}
+
+@media (max-width: 640px) {
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .blog-post {
+        padding: 24px;
+    }
+}
+</style>

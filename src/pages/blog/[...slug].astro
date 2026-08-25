@@ -1,0 +1,163 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<Base title={`${post.data.title} — 1RG Labs`}>
+    <article class="section post">
+        <div class="section-container">
+            <a href="/" class="back-link">← 1RG Labs</a>
+            <div class="post-meta">
+                <span class="post-date">{formatDate(post.data.date)}</span>
+                <span class="post-tag"><span>{post.data.tag}</span></span>
+            </div>
+            <h1 class="section-title">{post.data.title}</h1>
+            <div class="prose">
+                <Content />
+            </div>
+        </div>
+    </article>
+    <Footer />
+</Base>
+
+<style>
+.post {
+    min-height: 60vh;
+}
+
+.post .section-container {
+    max-width: 760px;
+}
+
+.back-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.post-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.post-tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(117, 71, 219, 0.1);
+    color: var(--primary);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: skewX(-45deg);
+    display: inline-block;
+}
+
+.post-tag span {
+    display: inline-block;
+    transform: skewX(45deg);
+}
+
+.prose {
+    margin-top: 40px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.prose :global(h2) {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 48px 0 16px;
+}
+
+.prose :global(h3) {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 40px 0 12px;
+}
+
+.prose :global(p) {
+    margin-bottom: 20px;
+}
+
+.prose :global(ul),
+.prose :global(ol) {
+    margin: 0 0 20px 24px;
+}
+
+.prose :global(li) {
+    margin-bottom: 8px;
+}
+
+.prose :global(a) {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.prose :global(a:hover) {
+    color: var(--secondary);
+}
+
+.prose :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    background: rgba(117, 71, 219, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.prose :global(pre) {
+    background: var(--bg-darker);
+    border: 1px solid rgba(117, 71, 219, 0.2);
+    border-radius: 6px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.prose :global(pre code) {
+    background: none;
+    padding: 0;
+}
+
+.prose :global(blockquote) {
+    border-left: 2px solid var(--primary);
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+</style>
