@@ -1,0 +1,209 @@
+/* Shared styles: reset, design tokens, page-wide background effects,
+   and section primitives used across components. Component-specific styles
+   live in scoped <style> blocks inside each .astro component. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #7547DB;
+    --secondary: #9b6fff;
+    --bg-dark: #030712;
+    --bg-darker: #020617;
+    --text-primary: #F9FAFB;
+    --text-secondary: #9CA3AF;
+}
+
+body {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.02;
+    z-index: 1;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjgiIG51bU9jdGF2ZXM9IjQiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9IjEiLz48L3N2Zz4=');
+}
+
+.gradient-bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(117, 71, 219, 0.1) 0%, transparent 40%),
+                linear-gradient(-45deg, rgba(155, 111, 255, 0.08) 0%, transparent 50%);
+    animation: drift 20s ease-in-out infinite;
+    z-index: 0;
+    transform: rotate(45deg);
+}
+
+@keyframes drift {
+    0%, 100% { transform: translate(0, 0) rotate(45deg); }
+    33% { transform: translate(-50px, -50px) rotate(50deg); }
+    66% { transform: translate(50px, -100px) rotate(40deg); }
+}
+
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(117, 71, 219, 0.15) 40px, rgba(117, 71, 219, 0.15) 41px),
+        repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(117, 71, 219, 0.15) 40px, rgba(117, 71, 219, 0.15) 41px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+}
+
+/* Animated grid lines - exact overlay approach */
+.animated-grid-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(117, 71, 219, 0.15) 40px, rgba(117, 71, 219, 0.15) 41px),
+        repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(117, 71, 219, 0.15) 40px, rgba(117, 71, 219, 0.15) 41px);
+    mask-image:
+        linear-gradient(45deg,
+            transparent 0%,
+            black 5%,
+            black 10%,
+            transparent 15%,
+            transparent 25%,
+            black 30%,
+            black 35%,
+            transparent 40%,
+            transparent 60%,
+            black 65%,
+            black 70%,
+            transparent 75%),
+        linear-gradient(-45deg,
+            transparent 0%,
+            black 10%,
+            black 15%,
+            transparent 20%,
+            transparent 40%,
+            black 45%,
+            black 50%,
+            transparent 55%,
+            transparent 70%,
+            black 75%,
+            black 80%,
+            transparent 85%);
+    mask-composite: add;
+    -webkit-mask-composite: source-over;
+    animation: pulseMask 8s ease-in-out infinite;
+}
+
+@keyframes pulseMask {
+    0%, 100% {
+        opacity: 0.3;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 0.6;
+        filter: brightness(1.2);
+    }
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(117, 71, 219, 0.1) 0%, transparent 50%);
+    filter: blur(100px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    left: -300px;
+    top: -300px;
+}
+
+body:hover .cursor-glow {
+    opacity: 0.3;
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+}
+
+@media (max-width: 640px) {
+    .cursor-glow {
+        display: none;
+    }
+
+    .gradient-bg {
+        animation: none;
+        opacity: 0.8;
+    }
+
+    .grid-overlay {
+        background-size: 30px 30px;
+        opacity: 0.6;
+        transform: rotate(45deg);
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-container {
+        padding: 0 20px;
+    }
+
+    .section-title {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .section-subtitle {
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+}
