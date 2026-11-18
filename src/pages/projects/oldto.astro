@@ -16,40 +16,12 @@ import Footer from '../../components/Footer.astro';
             </div>
             <h1 class="section-title">OldTO</h1>
             <p class="lede">
-                Toronto’s past, block by block. A new way to browse the digitized photographs,
-                maps, drawings and posters of the City of Toronto Archives, searchable by street,
-                year and subject.
+                Toronto’s past, block by block: over 135,000 photographs and historic maps from the
+                City of Toronto Archives, searchable by street, year and subject.
             </p>
-
-            <ul class="stats">
-                <li><strong>135,000+</strong> photographs</li>
-                <li><strong>1851–1943</strong> plans, atlases &amp; fire insurance maps</li>
-                <li><strong>3,700+</strong> people, places &amp; organisations</li>
-            </ul>
-
-            <div class="prose">
-                <h2>Rebuilt from the sources up</h2>
-                <p>
-                    OldTO began at Sidewalk Labs as a map of Toronto with the Archives’ photographs
-                    pinned to it. Back Lane Studios, a not-for-profit in Roncesvalles, later brought
-                    it back at oldto.org. The original could only show a photograph whose title named
-                    a place, about a third of the collection.
-                </p>
-                <p>
-                    This version keeps every record, placed or not, so a portrait or a press photograph
-                    can be found by search, year, subject, creator or the Archives’ own arrangement.
-                    The map is one way in among several. Descriptions are the Archives’ own, and every
-                    record carries its citation, rights statement and a link back to the source.
-                </p>
-                <p>
-                    OldTO is built by 1RG Labs in partnership with
-                    Back Lane Studios.
-                </p>
-            </div>
 
             <section class="signup" aria-labelledby="signup-title">
                 <h2 id="signup-title">Get notified when it launches</h2>
-                <p>Leave your email and we’ll let you know when OldTO goes live. Nothing else.</p>
                 <form
                     name="oldto-updates"
                     method="POST"
@@ -144,39 +116,6 @@ import Footer from '../../components/Footer.astro';
     margin-top: 8px;
 }
 
-.stats {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 40px 0 0;
-    font-size: 14px;
-    color: var(--text-secondary);
-}
-
-.stats li {
-    padding: 16px;
-    border: 1px solid rgba(117, 71, 219, 0.2);
-    background: rgba(117, 71, 219, 0.05);
-}
-
-.stats strong {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-}
-
-.prose {
-    margin-top: 40px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-}
-
-.prose h2,
 .signup h2 {
     font-size: 28px;
     font-weight: 500;
@@ -186,18 +125,12 @@ import Footer from '../../components/Footer.astro';
     line-height: 1.25;
 }
 
-.prose p {
-    margin-bottom: 20px;
-}
-
-.prose a,
 .signup-alt a {
     color: var(--primary);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.prose a:hover,
 .signup-alt a:hover {
     color: var(--secondary);
 }
@@ -277,10 +210,6 @@ import Footer from '../../components/Footer.astro';
 }
 
 @media (max-width: 640px) {
-    .stats {
-        grid-template-columns: 1fr;
-    }
-
     .signup-form {
         flex-direction: column;
     }
