@@ -1,0 +1,288 @@
+---
+import Base from '../../layouts/Base.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Base
+    title="OldTO — 1RG Labs"
+    description="OldTO, rebuilt: over 135,000 photographs and historic maps from the City of Toronto Archives, searchable by street, year and subject."
+>
+    <article class="section project">
+        <div class="section-container">
+            <a href="/" class="back-link">← 1RG Labs</a>
+            <div class="project-meta">
+                <span class="project-tag"><span>Project</span></span>
+                <span class="project-status">Coming soon</span>
+            </div>
+            <h1 class="section-title">OldTO</h1>
+            <p class="lede">
+                Toronto’s past, block by block. A new way to browse the digitized photographs,
+                maps, drawings and posters of the City of Toronto Archives, searchable by street,
+                year and subject.
+            </p>
+
+            <ul class="stats">
+                <li><strong>135,000+</strong> photographs</li>
+                <li><strong>1851–1943</strong> plans, atlases &amp; fire insurance maps</li>
+                <li><strong>3,700+</strong> people, places &amp; organisations</li>
+            </ul>
+
+            <div class="prose">
+                <h2>Rebuilt from the sources up</h2>
+                <p>
+                    OldTO began at Sidewalk Labs as a map of Toronto with the Archives’ photographs
+                    pinned to it. Back Lane Studios, a not-for-profit in Roncesvalles, later brought
+                    it back at oldto.org. The original could only show a photograph whose title named
+                    a place, about a third of the collection.
+                </p>
+                <p>
+                    This version keeps every record, placed or not, so a portrait or a press photograph
+                    can be found by search, year, subject, creator or the Archives’ own arrangement.
+                    The map is one way in among several. Descriptions are the Archives’ own, and every
+                    record carries its citation, rights statement and a link back to the source.
+                </p>
+                <p>
+                    OldTO is built by 1RG Labs in partnership with
+                    Back Lane Studios.
+                </p>
+            </div>
+
+            <section class="signup" aria-labelledby="signup-title">
+                <h2 id="signup-title">Get notified when it launches</h2>
+                <p>Leave your email and we’ll let you know when OldTO goes live. Nothing else.</p>
+                <form
+                    name="oldto-updates"
+                    method="POST"
+                    action="/projects/oldto/thanks/"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    class="signup-form"
+                >
+                    <input type="hidden" name="form-name" value="oldto-updates" />
+                    <p class="hidden">
+                        <label>Don’t fill this out: <input name="bot-field" /></label>
+                    </p>
+                    <label for="signup-email" class="visually-hidden">Email address</label>
+                    <input
+                        id="signup-email"
+                        type="email"
+                        name="email"
+                        required
+                        autocomplete="email"
+                        placeholder="you@example.com"
+                    />
+                    <button type="submit">Notify me <span class="arrow">→</span></button>
+                </form>
+                <p class="signup-alt">
+                    Or write to us at <a href="mailto:team@1rg.coop?subject=OldTO">team@1rg.coop</a>.
+                </p>
+            </section>
+        </div>
+    </article>
+    <Footer />
+</Base>
+
+<style>
+.project {
+    min-height: 60vh;
+}
+
+.project .section-container {
+    max-width: 760px;
+}
+
+.back-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.project-tag {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(117, 71, 219, 0.1);
+    color: var(--primary);
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: skewX(-45deg);
+    display: inline-block;
+}
+
+.project-tag span {
+    display: inline-block;
+    transform: skewX(45deg);
+}
+
+.project-status {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.lede {
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin-top: 8px;
+}
+
+.stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px 0 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.stats li {
+    padding: 16px;
+    border: 1px solid rgba(117, 71, 219, 0.2);
+    background: rgba(117, 71, 219, 0.05);
+}
+
+.stats strong {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.prose {
+    margin-top: 40px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.prose h2,
+.signup h2 {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 48px 0 16px;
+    line-height: 1.25;
+}
+
+.prose p {
+    margin-bottom: 20px;
+}
+
+.prose a,
+.signup-alt a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.prose a:hover,
+.signup-alt a:hover {
+    color: var(--secondary);
+}
+
+.signup {
+    margin-top: 24px;
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.signup-form {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.signup-form input[type='email'] {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    font-size: 17px;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(117, 71, 219, 0.35);
+    padding: 16px 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.signup-form input[type='email']:focus {
+    border-color: var(--secondary);
+}
+
+.signup-form button {
+    font: inherit;
+    font-size: 17px;
+    color: var(--text-primary);
+    background: rgba(117, 71, 219, 0.35);
+    border: none;
+    padding: 16px 28px;
+    cursor: pointer;
+    clip-path: polygon(0 14px, 14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.signup-form button:hover {
+    background: rgba(117, 71, 219, 0.55);
+    transform: translateY(-2px);
+}
+
+.signup-form .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.signup-form button:hover .arrow {
+    transform: translateX(4px);
+}
+
+.signup-alt {
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .signup-form {
+        flex-direction: column;
+    }
+}
+</style>

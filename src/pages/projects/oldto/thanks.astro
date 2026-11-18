@@ -1,0 +1,46 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Base title="Thanks — OldTO — 1RG Labs" description="Thanks for signing up for OldTO updates.">
+    <article class="section thanks">
+        <div class="section-container">
+            <a href="/projects/oldto/" class="back-link">← OldTO</a>
+            <h1 class="section-title">Thanks, you’re on the list.</h1>
+            <p>We’ll email you when OldTO launches.</p>
+        </div>
+    </article>
+    <Footer />
+</Base>
+
+<style>
+.thanks {
+    min-height: 60vh;
+}
+
+.thanks .section-container {
+    max-width: 760px;
+}
+
+.thanks p {
+    font-size: 19px;
+    color: var(--text-secondary);
+}
+
+.back-link {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary);
+}
+</style>
