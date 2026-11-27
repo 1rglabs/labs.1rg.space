@@ -5,9 +5,9 @@ import serena from '../assets/team/serena.jpg';
 import max from '../assets/team/max.jpg';
 
 const team = [
-  { name: 'Andrew Louis', role: 'Partner', bio: 'Product • Engineering', photo: andrew },
-  { name: 'Serena Peruzzo', role: 'Partner', bio: 'Data • Engineering', photo: serena },
-  { name: 'Max Veytsman', role: 'Partner', bio: 'Security • Engineering • DevOps', photo: max },
+  { name: 'Andrew Louis', role: 'Partner', bio: 'Product • Engineering', photo: andrew, linkedin: 'https://www.linkedin.com/in/hyfen/' },
+  { name: 'Serena Peruzzo', role: 'Partner', bio: 'Data • Engineering', photo: serena, linkedin: 'https://www.linkedin.com/in/speruzzo/' },
+  { name: 'Max Veytsman', role: 'Partner', bio: 'Security • Engineering • DevOps', photo: max, linkedin: 'https://www.linkedin.com/in/mveytsman/' },
 ];
 ---
 
@@ -16,7 +16,7 @@ const team = [
         <h2 class="section-title">Our Team</h2>
         <p class="section-subtitle team-subtitle">Worker-owned. Engineering-driven. Future-focused.</p>
         <div class="team-grid">
-            {team.map(({ name, role, bio, photo }) => (
+            {team.map(({ name, role, bio, photo, linkedin }) => (
                 <div class="team-member">
                     <div class="member-avatar">
                         <Image src={photo} alt={name} width={80} height={80} densities={[1, 2]} />
@@ -24,6 +24,9 @@ const team = [
                     <h3 class="member-name">{name}</h3>
                     <p class="member-role">{role}</p>
                     <p class="member-bio">{bio}</p>
+                    <a class="member-link" href={linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${name} on LinkedIn`}>
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                    </a>
                 </div>
             ))}
         </div>
@@ -101,6 +104,9 @@ const team = [
     background: linear-gradient(45deg, transparent 30%, rgba(117, 71, 219, 0.05) 50%, transparent 70%);
     transform: rotate(45deg) translateY(100%);
     transition: transform 0.6s ease;
+    /* Positioned, so it paints over the card's content; let clicks through
+       to the LinkedIn link underneath. */
+    pointer-events: none;
 }
 
 .team-member:hover::before {
@@ -157,6 +163,20 @@ const team = [
     font-size: 16px;
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+.member-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 20px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.member-link:hover,
+.member-link:focus-visible {
+    color: var(--primary);
 }
 
 @media (max-width: 640px) {
